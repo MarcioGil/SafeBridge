@@ -1,12 +1,7 @@
 # SafeBridge
 
 <!-- Badges CI/CD, site e links principais -->
-<p align="left">
-	<a href="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml">
-		<img src="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml/badge.svg" alt="CI Status" />
-	</a>
 	<a href="https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app">
-		<img src="https://img.shields.io/badge/Site%20Online-Acessar%20SafeBridge-2563eb?logo=vercel" alt="Site Online" />
 	</a>
 	<a href="https://vercel.com/dashboard">
 		<img src="https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel" alt="Vercel Deploy" />
@@ -21,10 +16,6 @@
 
 <p align="center">
 	<b>Site:</b> <a href="https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app">safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app</a> &nbsp;|&nbsp;
-	<b>Repositório:</b> <a href="https://github.com/MarcioGil/SafeBridge">github.com/MarcioGil/SafeBridge</a>
-</p>
-
-<!-- Imagem ilustrativa do projeto -->
 <p align="center">
 	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/cover.svg" alt="SafeBridge - Ilustração do Projeto" width="600" />
 </p>
@@ -32,20 +23,26 @@
 # SafeBridge
 
 
-## Propósito Social
 <b>SafeBridge</b> foi criado para proteger, incluir e empoderar minorias sociais vulneráveis — pessoas LGBTQIA+, pretas, indígenas, mulheres, PCDs e todos que sofrem preconceitos, violências ou exclusão. O app oferece um canal seguro, acessível e acolhedor para registro de ocorrências, denúncia de violência e busca de apoio, promovendo autonomia, privacidade e respeito. O objetivo é ser uma ponte de proteção e acolhimento para quem mais precisa.
 
-## Público-Alvo
-O aplicativo é destinado a:
-- Pessoas LGBTQIA+
-- Pessoas pretas
-- Indígenas
-- Mulheres
-- Pessoas com deficiência (PCDs)
-- Todas as minorias sociais que sofrem preconceitos e violências
 - Cidadãos em geral que desejam relatar ocorrências de forma anônima ou identificada
-- Profissionais de segurança, gestores públicos e equipes de resposta a emergências
 - Organizações e instituições que buscam monitorar e responder a incidentes de forma eficiente
+
+---
+
+## Maturidade Técnica e Organizacional
+O SafeBridge adota práticas modernas para garantir segurança, qualidade, acessibilidade e governança:
+
+- Análise de segurança/supply-chain (OpenSSF Scorecard)
+- Lint, análise estática e formatação automática (ESLint, Prettier)
+- Testes automatizados para funcionalidades críticas
+- Auditoria de acessibilidade (Lighthouse, checklist manual, WCAG 2.1)
+- Políticas de privacidade, termos de uso e governança documentadas
+- Infraestrutura de produção planejada (Postgres, storage, backup, HTTPS)
+- Monitoramento, logs e resposta a incidentes
+- Guia de contribuição, código de conduta e cultura de revisão de código
+
+Essas melhorias elevam a confiabilidade, segurança e transparência do projeto, tornando-o digno de confiança para pessoas vulneráveis e toda a comunidade.
 
 ---
 
@@ -76,12 +73,16 @@ O app é totalmente acessível para PCDs:
 
 ---
 
-## Segurança
+
+## Segurança, Monitoramento e Resposta a Incidentes
 - Dados protegidos e criptografados
 - Autenticação segura (NextAuth.js)
 - Privacidade garantida para todos os usuários
-- Backup automático do banco de dados
+- Backup automático do banco de dados e storage
 - Proteção contra ataques comuns (XSS, CSRF, SQL Injection)
+- Logging das operações sensíveis (sem dados pessoais)
+- Monitoramento de erros e alertas
+- Plano de resposta a incidentes: notificação, correção e remediação documentados em [SECURITY.md](./SECURITY.md)
 
 ---
 
@@ -157,6 +158,7 @@ O aplicativo é destinado a:
 - Pessoas com deficiência (PCDs), garantindo total acessibilidade digital
 - Organizações e instituições que buscam monitorar e responder a incidentes de forma eficiente
 
+
 ## Acessibilidade
 O SafeBridge foi projetado para ser totalmente acessível, permitindo que pessoas com deficiência (PCDs) utilizem o aplicativo com autonomia e segurança. As principais práticas e ferramentas adotadas incluem:
 
@@ -165,6 +167,11 @@ O SafeBridge foi projetado para ser totalmente acessível, permitindo que pessoa
 - **Labels e Descrições**: Todos os campos de formulário possuem labels associadas e descrições claras, inclusive para botões e áreas interativas.
 - **Imagens com Texto Alternativo**: Todas as imagens e ícones possuem atributos `alt` descritivos, essenciais para usuários de leitores de tela.
 - **Responsividade**: Layout adaptado para desktop, tablet e mobile, com elementos grandes e espaçamento adequado para navegação por toque.
+
+### Auditoria de Acessibilidade e Usabilidade
+- Auditoria automática: Recomenda-se rodar o [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) nas principais páginas para verificar acessibilidade, performance, SEO e PWA compliance.
+- Auditoria manual: Teste de navegação por teclado (Tab, Shift+Tab, Enter, Esc) e uso de leitores de tela (NVDA, JAWS, VoiceOver) para garantir que todos os fluxos são acessíveis.
+- Checklist WCAG: Verifique contraste, foco visível, navegação sem mouse, descrições alternativas e ausência de barreiras.
 - **Foco Visível e Navegação por Tabulação**: Todos os elementos interativos são acessíveis via teclado, com destaque visual de foco.
 - **Testes com Ferramentas de Acessibilidade**: Utilização de Lighthouse, axe-core, Wave e testes manuais com leitores de tela para validação contínua.
 - **Documentação e Feedback**: Orientações para uso acessível e canal para feedback de PCDs, promovendo melhoria contínua.

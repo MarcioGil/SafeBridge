@@ -1,8 +1,16 @@
 {
-  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
-  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:security/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "security"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
-    "react/jsx-key": "warn"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/jsx-key": "warn",
+    "security/detect-object-injection": "warn"
   }
 }
