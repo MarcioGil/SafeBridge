@@ -20,3 +20,4 @@ build/
 *.tmp
 test-results/
 /.turbo
+.vercel

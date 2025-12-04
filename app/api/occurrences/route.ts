@@ -1,17 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '../../../lib/prisma';
-import { z } from 'zod';
-
-const occurrenceSchema = z.object({
-  type: z.string(),
-  description: z.string().min(10),
-  city: z.string().optional(),
-  latitude: z.number().optional(),
-  longitude: z.number().optional(),
-  proofs: z.array(z.string()).optional(), // URLs dos arquivos
-  consent: z.boolean().optional(),
-  anonymous: z.boolean().optional(),
-});
+import { occurrenceSchema } from '../../../lib/occurrenceSchema';
 
 export async function POST(req: Request) {
   try {

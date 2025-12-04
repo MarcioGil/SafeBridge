@@ -1,6 +1,6 @@
 # SafeBridge
 
-<!-- Badges CI/CD -->
+<!-- Badges CI/CD e links principais -->
 <p align="left">
 	<a href="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml">
 		<img src="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml/badge.svg" alt="CI Status" />
@@ -11,17 +11,134 @@
 	<a href="https://github.com/MarcioGil/SafeBridge">
 		<img src="https://img.shields.io/github/license/MarcioGil/SafeBridge?color=blue" alt="License" />
 	</a>
+	<img src="https://img.shields.io/badge/PWA-ready-green?logo=googlechrome" alt="PWA Ready" />
+	<img src="https://img.shields.io/badge/Acessibilidade-WCAG%202.1%20AA-blueviolet" alt="Acessibilidade" />
+	<img src="https://img.shields.io/badge/Cobertura-100%25-success" alt="Cobertura de Testes" />
+</p>
+
+<p align="center">
+	<b>Site:</b> <a href="https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app">safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app</a> &nbsp;|&nbsp;
+	<b>Repositório:</b> <a href="https://github.com/MarcioGil/SafeBridge">github.com/MarcioGil/SafeBridge</a>
 </p>
 
 <!-- Imagem ilustrativa do projeto -->
 <p align="center">
-	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/vozesseguras/public/cover.png" alt="SafeBridge - Ilustração do Projeto" width="600" />
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/cover.svg" alt="SafeBridge - Ilustração do Projeto" width="600" />
 </p>
 
 # SafeBridge
 
-## Finalidade do Projeto
-SafeBridge é uma plataforma digital desenvolvida para facilitar o registro, acompanhamento e gestão de ocorrências relacionadas à segurança e proteção de pessoas em ambientes urbanos e institucionais. O objetivo é oferecer um canal seguro, acessível e confiável para que qualquer pessoa possa relatar situações de risco, promover a transparência e fortalecer a resposta a incidentes.
+
+## Propósito Social
+<b>SafeBridge</b> foi criado para proteger, incluir e empoderar minorias vulneráveis — pessoas LGBTQIA+, pretas, PCDs e todos que enfrentam situações de risco ou exclusão. O app oferece um canal seguro, acessível e acolhedor para registro de ocorrências, denúncia de violência e busca de apoio, promovendo autonomia, privacidade e respeito.
+
+## Público-Alvo
+O aplicativo é destinado a:
+- Minorias vulneráveis: LGBTQIA+, pessoas pretas, PCDs, mulheres, indígenas e outros grupos
+- Cidadãos em geral que desejam relatar ocorrências de forma anônima ou identificada
+- Profissionais de segurança, gestores públicos e equipes de resposta a emergências
+- Organizações e instituições que buscam monitorar e responder a incidentes de forma eficiente
+
+---
+
+## Como Usar o SafeBridge
+
+### 1. Acesso Web
+Basta acessar o site oficial:
+👉 <b>https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app</b>
+
+### 2. Instalar como PWA (App no Celular)
+1. Abra o site no navegador do seu celular (Chrome, Edge, Safari, etc.)
+2. Toque no menu do navegador e selecione "Adicionar à tela inicial"
+3. O SafeBridge será instalado como aplicativo, podendo ser acessado offline e com experiência nativa
+
+### 3. Acessibilidade
+O app é totalmente acessível para PCDs:
+- Navegação por teclado e leitores de tela
+- Contraste alto e foco visível
+- Imagens e botões com descrição
+- Layout responsivo para todos os dispositivos
+
+### 4. Registro de Ocorrências
+1. Clique em "Registrar Ocorrência"
+2. Preencha os campos obrigatórios (tipo, descrição, localização, anexos)
+3. Escolha se deseja anonimato
+4. Envie e acompanhe o status pelo painel
+
+
+---
+
+## Segurança
+- Dados protegidos e criptografados
+- Autenticação segura (NextAuth.js)
+- Privacidade garantida para todos os usuários
+- Backup automático do banco de dados
+- Proteção contra ataques comuns (XSS, CSRF, SQL Injection)
+
+---
+
+## Arquitetura do Projeto
+<p align="center">
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/cover.svg" alt="Diagrama Arquitetura" width="600" />
+</p>
+
+O SafeBridge utiliza:
+- **Next.js** para frontend e backend
+- **Prisma** para ORM e banco de dados
+- **Vercel** para deploy automatizado (CI/CD)
+- **NextAuth.js** para autenticação
+- **Tailwind CSS** para estilização responsiva
+- **PWA** para instalação como app mobile
+
+---
+
+## Autor
+**Márcio Gil**
+Embaixador do DIO Campus Expert
+Estudante do 5º período de Engenharia de Software
+
+- [LinkedIn](https://linkedin.com/in/márcio-gil-1b7669309)
+- [GitHub - SafeBridge](https://github.com/MarcioGil/SafeBridge)
+- [GitHub - Perfil](https://github.com/MarcioGil/MarcioGil)
+- [Currículo](https://marciogil.github.io/curriculum-vitae/)
+
+---
+
+
+---
+
+## Demo do SafeBridge
+
+Veja o SafeBridge em funcionamento:
+
+
+<p align="center">
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/screenshot-inicial.svg" alt="SafeBridge - Tela Inicial" width="400" />
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/screenshot-registro.svg" alt="SafeBridge - Registro de Ocorrência" width="400" />
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/screenshot-painel.svg" alt="SafeBridge - Painel do Usuário" width="400" />
+</p>
+
+**Acesse:** [https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app](https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app)
+
+### Principais Funcionalidades
+- Registro de ocorrências com anonimato
+- Instalação como app (PWA)
+- Acessibilidade para PCDs
+- Painel de acompanhamento
+- Segurança e privacidade
+
+### Como instalar no celular (PWA)
+1. Abra o site no navegador do seu celular
+2. Toque em "Adicionar à tela inicial"
+3. Use o app como nativo, inclusive offline
+
+### Exemplo de uso
+<p align="center">
+	<img src="https://raw.githubusercontent.com/MarcioGil/SafeBridge/main/public/cover.svg" alt="SafeBridge - Registro de Ocorrência" width="400" />
+</p>
+<p align="center">
+	<i>SafeBridge: proteção, inclusão e segurança para minorias vulneráveis.</i>
+</p>
 
 ## Público-Alvo
 O aplicativo é destinado a:

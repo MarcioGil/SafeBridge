@@ -19,6 +19,7 @@
     "form-data": "^4.0.5",
     "next": "^14.2.33",
     "next-auth": "latest",
+    "next-pwa": "^5.6.0",
     "node-fetch": "^2.7.0",
     "postcss": "^8.4.31",
     "react": "latest",

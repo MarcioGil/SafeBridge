@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { occurrenceSchema } from '../app/api/occurrences/route';
+import { occurrenceSchema } from '../lib/occurrenceSchema';
 
 describe('Occurrence API', () => {
   it('valida ocorrência válida', () => {
