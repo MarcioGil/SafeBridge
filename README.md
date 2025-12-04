@@ -1,3 +1,92 @@
+### Logs Estruturados (JSON)
+
+Todos os logs do SafeBridge seguem o formato JSON estruturado, facilitando ingestão e análise em plataformas como Datadog, Elastic, Logtail, etc.
+
+**Exemplo de log:**
+```json
+{
+	"timestamp": "2025-12-04T12:34:56Z",
+	"level": "info",
+	"message": "Ocorrência registrada com sucesso",
+	"userId": "anon",
+	"ip": "203.0.113.42",
+	"route": "/api/occurrences"
+}
+```
+
+- Logs de erro, acesso e eventos relevantes seguem o mesmo padrão.
+- Isso permite buscas rápidas, alertas e integração com sistemas de monitoramento.
+### Exemplo de Payload e Validação (Zod)
+
+**Exemplo de payload para registro de ocorrência:**
+```json
+{
+	"type": "Violência doméstica",
+	"description": "Agressão física sofrida na residência.",
+	"city": "São Paulo",
+	"attachments": [
+		"https://storage.example.com/arquivo1.jpg"
+	],
+	"anonymous": true
+}
+```
+
+**Exemplo de schema Zod para validação:**
+```ts
+import { z } from "zod";
+
+export const occurrenceSchema = z.object({
+	type: z.string().min(3),
+	description: z.string().min(10),
+	city: z.string().min(2),
+	attachments: z.array(z.string().url()).optional(),
+	anonymous: z.boolean().optional()
+});
+
+// Validação
+const result = occurrenceSchema.safeParse(payload);
+if (!result.success) {
+	// Trate os erros de validação
+	console.log(result.error);
+}
+```
+### Rate Limiting (Limite de Requisições)
+
+Para proteger a API contra abusos e ataques (DDoS, spam de ocorrências), todas as rotas POST (especialmente `/api/occurrences`) implementam rate limiting.
+
+- **Política recomendada:**
+	- Limite: 5 requisições por minuto por IP para registro de ocorrência.
+	- Excedido o limite, a API retorna HTTP 429 Too Many Requests com mensagem clara.
+- **Exemplo de resposta:**
+```json
+{
+	"error": "Rate limit exceeded. Aguarde um momento antes de tentar novamente."
+}
+```
+- **Implementação:**
+	- Middleware de segurança aplica o controle antes de processar a requisição.
+	- Pode ser customizado conforme necessidade do projeto.
+
+> **Importante:** Sempre documente os limites e mensagens de erro para facilitar integração de apps e evitar frustração do usuário.
+## Estratégia de Storage para Uploads
+
+O SafeBridge utiliza armazenamento externo (Supabase Storage ou S3) para garantir durabilidade, escalabilidade e segurança dos anexos enviados nas ocorrências.
+
+- **Campo `attachments` no Prisma:** O campo `attachments: String[]` armazena apenas as URLs dos arquivos enviados, nunca o binário no banco.
+- **Processo de upload recomendado:**
+	1. O frontend requisita um pre-signed URL para upload direto ao storage (S3/Supabase), autenticando via API.
+	2. O arquivo é enviado diretamente do navegador para o storage, sem passar pelo servidor Next.js (evita sobrecarga e limitações de payload).
+	3. Após upload bem-sucedido, a URL do arquivo é registrada no campo `attachments` da ocorrência.
+- **Vantagens:**
+	- Reduz latência e uso de banda do backend.
+	- Permite uploads grandes e simultâneos.
+	- Melhora a segurança, pois o backend nunca manipula o arquivo binário.
+- **Exemplo de fluxo:**
+	- POST `/api/occurrences/upload-url` → retorna pre-signed URL.
+	- Frontend faz upload direto para o storage.
+	- POST `/api/occurrences` com as URLs dos anexos.
+
+> **Nota:** O endpoint de upload pode ser adaptado para S3, Supabase ou outro storage compatível. Sempre use URLs temporárias e permissões restritas.
 ## Monitoramento e Observabilidade
 
 O SafeBridge implementa monitoramento e logs para garantir rastreabilidade, resposta rápida a incidentes e transparência.
