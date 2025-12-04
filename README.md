@@ -1,9 +1,12 @@
 # SafeBridge
 
-<!-- Badges CI/CD e links principais -->
+<!-- Badges CI/CD, site e links principais -->
 <p align="left">
 	<a href="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml">
 		<img src="https://github.com/MarcioGil/SafeBridge/actions/workflows/ci.yml/badge.svg" alt="CI Status" />
+	</a>
+	<a href="https://safebridge-clean-oy6v9r5r6-marciogils-projects.vercel.app">
+		<img src="https://img.shields.io/badge/Site%20Online-Acessar%20SafeBridge-2563eb?logo=vercel" alt="Site Online" />
 	</a>
 	<a href="https://vercel.com/dashboard">
 		<img src="https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel" alt="Vercel Deploy" />
@@ -30,11 +33,16 @@
 
 
 ## Propósito Social
-<b>SafeBridge</b> foi criado para proteger, incluir e empoderar minorias vulneráveis — pessoas LGBTQIA+, pretas, PCDs e todos que enfrentam situações de risco ou exclusão. O app oferece um canal seguro, acessível e acolhedor para registro de ocorrências, denúncia de violência e busca de apoio, promovendo autonomia, privacidade e respeito.
+<b>SafeBridge</b> foi criado para proteger, incluir e empoderar minorias sociais vulneráveis — pessoas LGBTQIA+, pretas, indígenas, mulheres, PCDs e todos que sofrem preconceitos, violências ou exclusão. O app oferece um canal seguro, acessível e acolhedor para registro de ocorrências, denúncia de violência e busca de apoio, promovendo autonomia, privacidade e respeito. O objetivo é ser uma ponte de proteção e acolhimento para quem mais precisa.
 
 ## Público-Alvo
 O aplicativo é destinado a:
-- Minorias vulneráveis: LGBTQIA+, pessoas pretas, PCDs, mulheres, indígenas e outros grupos
+- Pessoas LGBTQIA+
+- Pessoas pretas
+- Indígenas
+- Mulheres
+- Pessoas com deficiência (PCDs)
+- Todas as minorias sociais que sofrem preconceitos e violências
 - Cidadãos em geral que desejam relatar ocorrências de forma anônima ou identificada
 - Profissionais de segurança, gestores públicos e equipes de resposta a emergências
 - Organizações e instituições que buscam monitorar e responder a incidentes de forma eficiente
@@ -97,10 +105,12 @@ O SafeBridge utiliza:
 Embaixador do DIO Campus Expert
 Estudante do 5º período de Engenharia de Software
 
-- [LinkedIn](https://linkedin.com/in/márcio-gil-1b7669309)
-- [GitHub - SafeBridge](https://github.com/MarcioGil/SafeBridge)
-- [GitHub - Perfil](https://github.com/MarcioGil/MarcioGil)
-- [Currículo](https://marciogil.github.io/curriculum-vitae/)
+<p align="left">
+	<a href="https://linkedin.com/in/márcio-gil-1b7669309">LinkedIn</a> &nbsp;|&nbsp;
+	<a href="https://github.com/MarcioGil/SafeBridge">GitHub - SafeBridge</a> &nbsp;|&nbsp;
+	<a href="https://github.com/MarcioGil/MarcioGil">GitHub - Perfil</a> &nbsp;|&nbsp;
+	<a href="https://marciogil.github.io/curriculum-vitae/">Currículo</a>
+</p>
 
 ---
 
