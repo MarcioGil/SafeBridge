@@ -1,0 +1,21 @@
+# Snyk configuration (optional)
+# To enable Snyk, add your Snyk token as a GitHub secret (SNYK_TOKEN)
+# Example workflow:
+name: "Snyk Security Scan"
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@v3
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: test

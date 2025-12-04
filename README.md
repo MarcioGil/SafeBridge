@@ -1,3 +1,323 @@
+## Navegação por Teclado e Atalhos
+
+O SafeBridge é totalmente navegável por teclado, garantindo acessibilidade:
+
+- Tabulação lógica entre campos e botões.
+- Atalhos para ações rápidas (ex: Alt+N para nova ocorrência, Alt+D para dashboard).
+- Foco visível e feedback para navegação.
+- Testes automatizados para garantir acessibilidade de navegação.
+
+### Exemplo de Atalho
+```typescript
+// app/globals.css
+*:focus {
+	outline: 2px solid #2563eb;
+}
+```
+
+// app/layout.tsx
+useEffect(() => {
+	const handler = (e: KeyboardEvent) => {
+		if (e.altKey && e.key === 'n') {
+			router.push('/occurrence');
+		}
+		if (e.altKey && e.key === 'd') {
+			router.push('/dashboard');
+		}
+	};
+	window.addEventListener('keydown', handler);
+	return () => window.removeEventListener('keydown', handler);
+}, []);
+## Alertas de Monitoramento
+
+O SafeBridge monitora eventos críticos e envia alertas para equipes responsáveis:
+
+- **Vercel Analytics:** Monitoramento de tráfego e erros.
+- **Datadog/Sentry/Logtail:** Integração opcional para logs, métricas e alertas customizados.
+- **Notificações:** E-mail, Slack, ou webhooks configuráveis para incidentes.
+
+### Exemplo de Integração com Sentry
+```typescript
+import * as Sentry from '@sentry/nextjs';
+Sentry.captureException(new Error('Erro crítico'));
+```
+
+> Configure as integrações no painel de cada serviço e adicione as variáveis de ambiente necessárias.
+## Testes Automatizados de Acessibilidade
+
+O SafeBridge utiliza testes automatizados para garantir acessibilidade:
+
+- **axe-core:** Testes unitários e integração via Vitest.
+- **Lighthouse:** Auditoria automatizada em CI/CD.
+- **Testes manuais:** Checklist WCAG 2.1 e navegação por teclado.
+
+### Exemplo de Teste com axe-core
+```typescript
+import { configureAxe } from 'jest-axe';
+import { render } from '@testing-library/react';
+import AccessibleButton from '../components/AccessibleButton';
+
+test('botão acessível', async () => {
+	const { container } = render(<AccessibleButton />);
+	const axe = configureAxe();
+	expect(await axe(container)).toHaveNoViolations();
+});
+```
+
+### Integração com CI/CD
+Inclua os testes de acessibilidade no workflow do GitHub Actions para garantir conformidade contínua.
+## Geolocalização
+
+O SafeBridge utiliza geolocalização para:
+
+- Capturar localização do usuário ao registrar ocorrências (com consentimento).
+- Exibir mapa interativo para ONGs e parceiros.
+- Filtrar ocorrências por proximidade.
+
+### Exemplo de Uso
+```typescript
+// app/occurrence/page.tsx
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition((position) => {
+		const { latitude, longitude } = position.coords;
+		// Enviar localização para API
+	});
+}
+```
+
+> Permissões são solicitadas ao usuário. Dados são tratados conforme LGPD/GDPR.
+## Integração com Serviços de Emergência (APIs/Webhooks)
+
+O SafeBridge permite integração com serviços de emergência via APIs e webhooks:
+
+- Envio automático de ocorrências para parceiros (Samu, Bombeiros, Polícia, ONGs).
+- Webhooks configuráveis para notificações em tempo real.
+- API REST para consulta e registro de ocorrências.
+- Segurança: autenticação via token, validação de payload e logs de auditoria.
+
+### Exemplo de Webhook
+```json
+POST https://api.safebridge.com/webhook
+{
+	"type": "emergency",
+	"location": "-23.55,-46.63",
+	"description": "Pessoa em situação de risco",
+	"timestamp": "2025-12-04T12:34:56Z"
+}
+```
+
+> Consulte a documentação da API para detalhes de autenticação e formatos de payload.
+## Dashboard Administrativo para ONGs
+
+O SafeBridge oferece um dashboard exclusivo para ONGs parceiras, permitindo:
+
+- Visualizar e gerenciar ocorrências recebidas.
+- Filtrar por status, data, tipo e localização.
+- Exportar dados para CSV/Excel.
+- Gerenciar permissões de acesso (admin, operador).
+- Receber notificações em tempo real (webhooks, e-mail).
+- Acessar estatísticas e gráficos de impacto.
+
+### Exemplo Visual
+![Exemplo de dashboard](public/dashboard-exemplo.png)
+
+> O dashboard é acessível via `/dashboard` após autenticação. Permissões são gerenciadas via NextAuth.js e roles no banco de dados.
+## Métricas de Código e Revisão
+
+Para garantir qualidade e evolução contínua, o SafeBridge utiliza métricas e processos de revisão:
+
+- **Cobertura de Testes:** Relatórios via Vitest, integração com CI/CD. Recomenda-se manter cobertura acima de 80%.
+- **Qualidade de Código:** ESLint, Prettier, OpenSSF Scorecard, análise estática (CodeQL).
+- **Revisão de PRs:** Todo código novo passa por revisão de pull request, com checklist de segurança, acessibilidade e testes.
+- **Ferramentas recomendadas:**
+	- [SonarCloud](https://sonarcloud.io/) (opcional)
+	- [Codecov](https://about.codecov.io/)
+	- [OpenSSF Scorecard](https://github.com/ossf/scorecard)
+
+### Exemplo de Relatório de Cobertura
+Após rodar os testes:
+```bash
+npx vitest --coverage
+```
+O relatório será gerado em `coverage/` e pode ser integrado ao CI/CD.
+## Segurança: SAST e Análise de Vulnerabilidades
+
+O SafeBridge utiliza ferramentas de análise estática e dependências para garantir segurança contínua:
+
+- **CodeQL:** Workflow GitHub Actions para análise de vulnerabilidades em código.
+- **Dependabot:** Atualização automática de dependências vulneráveis.
+- **Snyk (opcional):** Análise de vulnerabilidades em dependências e containers.
+
+### Exemplo de Workflow CodeQL
+```yaml
+name: "CodeQL"
+on:
+	push:
+		branches: [main]
+	pull_request:
+		branches: [main]
+jobs:
+	analyze:
+		name: Analyze
+		runs-on: ubuntu-latest
+		steps:
+			- name: Checkout code
+				uses: actions/checkout@v3
+			- name: Initialize CodeQL
+				uses: github/codeql-action/init@v2
+				with:
+					languages: javascript
+			- name: Autobuild
+				uses: github/codeql-action/autobuild@v2
+			- name: Perform CodeQL Analysis
+				uses: github/codeql-action/analyze@v2
+```
+
+> Dependabot é ativado por padrão em repositórios GitHub. Snyk pode ser integrado conforme necessidade.
+## Segurança: Middleware de HTTPS e CSP
+
+O SafeBridge utiliza middleware para garantir segurança adicional:
+
+- **Redirecionamento HTTPS:** Todas as requisições HTTP são redirecionadas para HTTPS via middleware Next.js.
+- **Content Security Policy (CSP):** Headers de segurança são configurados para prevenir ataques XSS e garantir integridade dos dados.
+
+### Exemplo de Middleware (Next.js)
+```typescript
+// middleware.ts
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+	// Redireciona HTTP para HTTPS
+	if (request.nextUrl.protocol === 'http:') {
+		return NextResponse.redirect(`https://${request.nextUrl.host}${request.nextUrl.pathname}`);
+	}
+	// Adiciona headers CSP
+	const response = NextResponse.next();
+	response.headers.set('Content-Security-Policy', "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:");
+	return response;
+}
+```
+
+> Recomenda-se revisar e ajustar a política CSP conforme as integrações do projeto.
+![Deploy](https://img.shields.io/badge/deploy-vercel-green?style=flat-square)
+[Acesse o site público](https://safe-bridge.vercel.app)
+## Pipeline CI/CD (GitHub Actions)
+
+O SafeBridge utiliza GitHub Actions para automatizar testes, lint, build e deploy:
+
+```yaml
+name: CI/CD
+on:
+	push:
+		branches: [main]
+	pull_request:
+		branches: [main]
+jobs:
+	build-and-test:
+		runs-on: ubuntu-latest
+		steps:
+			- name: Checkout code
+				uses: actions/checkout@v3
+			- name: Setup Node.js
+				uses: actions/setup-node@v3
+				with:
+					node-version: '20'
+			- name: Install dependencies
+				run: npm ci
+			- name: Lint
+				run: npm run lint
+			- name: Run tests
+				run: npm test
+			- name: Build
+				run: npm run build
+	deploy:
+		needs: build-and-test
+		runs-on: ubuntu-latest
+		if: github.ref == 'refs/heads/main'
+		steps:
+			- name: Checkout code
+				uses: actions/checkout@v3
+			- name: Deploy to Vercel
+				uses: amondnet/vercel-action@v25
+				with:
+					vercel-token: ${{ secrets.VERCEL_TOKEN }}
+					vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+					vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+					vercel-args: '--prod'
+					working-directory: .
+```
+
+> Configure as variáveis de ambiente no GitHub Secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
+## Histórico de Versões (Changelog)
+
+Consulte o [CHANGELOG.md](CHANGELOG.md) para ver todas as mudanças, seguindo Semantic Versioning.
+
+> Sempre registre novas funcionalidades, correções e mudanças importantes no changelog.
+## Exemplos de Testes e Instruções
+
+O SafeBridge utiliza Vitest para testes unitários, integração e E2E. Os principais exemplos estão em `__tests__/`:
+
+### Teste Unitário (Acessibilidade)
+```typescript
+// __tests__/accessibility.test.ts
+import { describe, it, expect } from 'vitest';
+describe('Acessibilidade', () => {
+	it('botão tem foco visível', () => {
+		const buttonClass = 'focus-visible:outline-2 focus-visible:outline-blue-600';
+		expect(buttonClass).toContain('focus-visible');
+	});
+});
+```
+
+### Teste de Integração (Validação de Ocorrência)
+```typescript
+// __tests__/occurrences.test.ts
+import { describe, it, expect } from 'vitest';
+import { occurrenceSchema } from '../lib/occurrenceSchema';
+describe('Occurrence API', () => {
+	it('valida ocorrência válida', () => {
+		const valid = { type: 'Violência', description: 'Descrição detalhada', city: 'São Paulo', latitude: -23.5, longitude: -46.6, proofs: ['https://storage.com/file.jpg'], consent: true, anonymous: false };
+		expect(() => occurrenceSchema.parse(valid)).not.toThrow();
+	});
+	it('rejeita descrição curta', () => {
+		const invalid = { type: 'Violência', description: 'Curto' };
+		expect(() => occurrenceSchema.parse(invalid)).toThrow();
+	});
+});
+```
+
+### Teste E2E (API de Denúncias)
+```typescript
+// __tests__/api-denuncias.test.ts
+import { describe, it, expect } from 'vitest';
+import { occurrenceSchema } from '../lib/occurrenceSchema';
+describe('API de Denúncias', () => {
+	it('deve aceitar payload completo', () => {
+		const payload = { type: 'Discriminação', description: 'Fui vítima de discriminação em local público.', city: 'Recife', latitude: -8.05, longitude: -34.9, proofs: ['https://storage.com/prova.jpg'], consent: true, anonymous: true };
+		expect(() => occurrenceSchema.parse(payload)).not.toThrow();
+	});
+	it('deve rejeitar payload sem tipo', () => {
+		const payload = { description: 'Fui vítima de discriminação.' };
+		expect(() => occurrenceSchema.parse(payload)).toThrow();
+	});
+});
+```
+
+### Como rodar os testes
+
+```bash
+npm test
+# ou
+npx vitest run
+```
+
+> Os testes cobrem validação de payload, acessibilidade, upload, cadastro e integração da API.
+## Diagrama de Arquitetura
+
+![Diagrama de Arquitetura](public/arquitetura.svg)
+
+O diagrama acima representa o fluxo de dados, autenticação, storage e integração entre os principais módulos do SafeBridge.
 ### Logs Estruturados (JSON)
 
 Todos os logs do SafeBridge seguem o formato JSON estruturado, facilitando ingestão e análise em plataformas como Datadog, Elastic, Logtail, etc.
