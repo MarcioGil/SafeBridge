@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "env": {
+    "DATABASE_URL": "<URL_PRODUCAO_POSTGRES>",
+    "NEXTAUTH_SECRET": "<SECRET_PRODUCAO>",
+    "NEXTAUTH_URL": "https://vozesseguras.vercel.app",
+    "SUPABASE_URL": "<URL_SUPABASE>",
+    "SUPABASE_KEY": "<KEY_SUPABASE>"
+  }
+}
