@@ -10,22 +10,7 @@ export default function Home() {
           <li><Link href="/occurrence" className="hover:underline">Registrar Ocorrência</Link></li>
           <li><Link href="/privacy" className="hover:underline">Privacidade</Link></li>
           <li><Link href="/auth/signin" className="hover:underline">Entrar/Sair</Link></li>
-        </ul>
-      </nav>
-      <section className="max-w-2xl w-full mx-auto mt-12 p-6 bg-gray-50 rounded shadow">
-        <img src="/missao-banner.svg" alt="Missão SafeBridge: proteção, acolhimento e resposta rápida" className="w-full mb-6 rounded" />
-        <h1 className="text-3xl font-bold mb-4 text-blue-700">Bem-vindo ao SafeBridge</h1>
-        <p className="text-lg mb-2">Proteção, inclusão e acolhimento para minorias vulneráveis.</p>
-        <p className="mb-4 text-gray-700">Registre ocorrências de forma segura, anônima e acessível. O sistema conecta vítimas, ONGs e órgãos públicos para resposta rápida e apoio.</p>
-        <ul className="list-disc pl-6 mb-4 text-gray-800">
-          <li>Registro de denúncias com anonimato</li>
-          <li>Painel de acompanhamento</li>
-          <li>Acessibilidade para PCDs</li>
-          <li>Privacidade e segurança de dados</li>
-        </ul>
-        <div className="flex gap-4 mt-6">
-          <Link href="/occurrence" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Registrar Ocorrência</Link>
-          <Link href="/dashboard" className="bg-gray-200 text-blue-700 px-4 py-2 rounded hover:bg-gray-300">Ver Dashboard</Link>
+        }
         </div>
         {/* Canal de Contato e Denúncia Anônima */}
         <div className="mt-10">
