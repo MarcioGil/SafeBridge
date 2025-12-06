@@ -114,20 +114,7 @@ export default function Home() {
     </main>
   );
 }
-          <h2 className="text-xl font-bold mb-2 text-blue-600">Recursos de Apoio e Orientação</h2>
-          <ul className="list-disc pl-6 mb-4 text-gray-800">
-            <li><strong>ONGs de apoio à mulher:</strong> <a href="https://mariadapenha.org.br/" target="_blank" rel="noopener" className="text-blue-700 underline">Instituto Maria da Penha</a>, <a href="https://www.agenciapatriciagalvao.org.br/" target="_blank" rel="noopener" className="text-blue-700 underline">Patrícia Galvão</a></li>
-            <li><strong>Serviços públicos:</strong> <a href="https://www.gov.br/mdh/pt-br/assuntos/denuncias" target="_blank" rel="noopener" className="text-blue-700 underline">Ministério dos Direitos Humanos</a></li>
-            <li><strong>Apoio psicológico:</strong> <a href="https://www.cvv.org.br/" target="_blank" rel="noopener" className="text-blue-700 underline">CVV - Centro de Valorização da Vida</a></li>
-            <li><strong>Orientação jurídica gratuita:</strong> <a href="https://www.defensoria.sp.def.br/" target="_blank" rel="noopener" className="text-blue-700 underline">Defensoria Pública</a></li>
-            <li><strong>Aplicativos oficiais:</strong> <a href="https://play.google.com/store/apps/details?id=br.gov.mj.sinesp.cidadao" target="_blank" rel="noopener" className="text-blue-700 underline">Sinesp Cidadão</a>, <a href="https://play.google.com/store/apps/details?id=br.gov.mj.sinesp.seguranca" target="_blank" rel="noopener" className="text-blue-700 underline">Sinesp Segurança</a></li>
-            <li><strong>Canal de denúncia anônima:</strong> <a href="https://www.disquedenuncia.org.br/" target="_blank" rel="noopener" className="text-blue-700 underline">Disque Denúncia</a></li>
-          </ul>
-        </div>
-import Link from "next/link";
-
-export default function Home() {
-  return (
+// ...existing code...
     <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-start">
       <nav className="w-full bg-blue-600 text-white py-3 px-4 flex justify-between items-center shadow">
         <span className="font-bold text-xl">SafeBridge</span>
