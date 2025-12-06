@@ -11,6 +11,8 @@ export default function Home() {
           <li><Link href="/privacy" className="hover:underline">Privacidade</Link></li>
           <li><Link href="/auth/signin" className="hover:underline">Entrar/Sair</Link></li>
         </ul>
+      </nav>
+      <section className="w-full max-w-4xl px-4">
         {/* Canal de Contato e Denúncia Anônima */}
         <div className="mt-10">
           <h2 className="text-xl font-bold mb-2 text-blue-600">Canal de Contato e Denúncia Anônima</h2>
