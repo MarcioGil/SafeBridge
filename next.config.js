@@ -2,7 +2,6 @@
 const withPWA = require('next-pwa');
 
 const nextConfig = withPWA({
-  reactStrictMode: true,
   images: {
     domains: [], // Adicione domínios confiáveis para imagens
   },
@@ -13,5 +12,7 @@ const nextConfig = withPWA({
     disable: process.env.NODE_ENV === 'development',
   },
 });
+
+nextConfig.reactStrictMode = true;
 
 module.exports = nextConfig;
