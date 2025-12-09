@@ -10,8 +10,13 @@
     "deploy:push": "git add . && git commit -m 'deploy: atualização para produção' && git push origin main"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@next-auth/prisma-adapter": "^1.0.7",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.67.2",
+    "@opentelemetry/sdk-node": "^0.208.0",
     "@prisma/client": "^6.15.0",
+    "@sentry/nextjs": "^10.29.0",
     "@supabase/supabase-js": "^2.86.0",
     "@types/node": "^24.10.1",
     "autoprefixer": "^10.4.14",
@@ -24,8 +29,10 @@
     "postcss": "^8.4.31",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-hook-form": "^7.68.0",
     "tailwindcss": "^3.3.3",
-    "zod": "latest"
+    "web-vitals": "^5.1.0",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
@@ -35,8 +42,10 @@
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-security": "^3.0.1",
+    "playwright": "^1.57.0",
     "prettier": "^3.7.4",
     "prisma": "^6.15.0",
-    "typescript": "latest"
+    "typescript": "latest",
+    "webpack-bundle-analyzer": "^5.0.1"
   }
 }
