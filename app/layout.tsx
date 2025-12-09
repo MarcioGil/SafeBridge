@@ -1,5 +1,15 @@
+
 import './globals.css';
 import type { ReactNode } from 'react';
+import { AppProvider } from "../lib/AppContext";
+import { reportWebVitals } from "../lib/webVitals";
+
+if (typeof window !== "undefined") {
+  reportWebVitals((metric) => {
+    // Exemplo: enviar para analytics ou logar no console
+    console.log("Web Vitals:", metric);
+  });
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -40,7 +50,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="w-full bg-blue-50 text-blue-900 py-2 px-4 text-center text-sm shadow">
           <span>Bem-vindo ao SafeBridge! Use o menu acima para navegar. Para registrar uma ocorrência, clique em "Registrar Ocorrência". Em caso de emergência, ligue <b>190</b>.</span>
         </div>
+        <AppProvider>
         {children}
+        </AppProvider>
       </body>
     </html>
   );
