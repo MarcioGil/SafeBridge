@@ -541,6 +541,49 @@ export async function middleware(req) {
 ```
 # SafeBridge
 
+## Melhorias Recentes
+### SLA/Uptime Targets
+Documentação criada em `docs/sla-uptime.md` com metas de disponibilidade, tempo de resposta e práticas recomendadas de monitoramento.
+### Alertas de Erro (Sentry)
+Configurado exemplo de alertas com Sentry (`lib/sentry.ts`). Basta informar o DSN do seu projeto para receber notificações de erros críticos.
+### Métricas de Negócio
+Adicionado exemplo de coleta de métricas de funil/conversão (`lib/businessMetrics.ts`) para monitorar visitas, registros, ocorrências e uploads.
+### Distributed Tracing
+Integrado exemplo de tracing distribuído com OpenTelemetry (`lib/tracing.ts`) para monitoramento de requisições e performance.
+### Query Optimization
+Adicionados exemplos de queries otimizadas no backend (`lib/optimizedQueries.ts`) usando índices, paginação e filtros eficientes.
+### Plano de Backup/Recovery
+Documentação criada em `docs/backup-recovery.md` detalhando procedimentos de backup automático, restauração e testes de integridade.
+### Índices explícitos no Prisma
+Adicionados índices nos campos críticos do modelo `Occurrence` (`userId`, `status`, `createdAt`, `city`) para melhorar a performance de consultas.
+### Core Web Vitals
+Adicionada coleta de métricas Core Web Vitals no frontend via `web-vitals`. Métricas podem ser enviadas para analytics ou monitoradas no console.
+### Estratégia de Cache HTTP
+Implementada estratégia de cache HTTP no middleware:
+- Rotas estáticas (imagens, arquivos públicos): cache público por 24h.
+- Rotas dinâmicas (API): cache privado por 1 minuto.
+### Análise de Bundle Size
+Integrado `webpack-bundle-analyzer` para análise do tamanho do bundle. Para gerar o relatório, execute:
+```bash
+ANALYZE=true npm run build
+```
+O relatório será gerado em `analyze/client.html` e `analyze/server.html`.
+### Testes E2E com Playwright
+Integrado Playwright para testes end-to-end. Exemplos de testes de login, registro, upload e dashboard disponíveis em `e2e/login.spec.ts` e `e2e/register-upload-dashboard.spec.ts`.
+### Formulários Complexos
+Adicionado componente `ComplexForm` com validação avançada usando react-hook-form e Zod. Exemplo disponível em `components/ComplexForm.tsx`.
+### Performance e Otimização
+O componente `AdvancedCard` agora utiliza `React.memo` para evitar renders desnecessários.
+Exemplo de lazy loading implementado em `AdvancedCardExample` usando `React.lazy` e `Suspense`.
+### State Management Avançado
+Integrado Context API global (`lib/AppContext.tsx`) para gerenciamento de estado do usuário em todo o app.
+Adicionado exemplo de gerenciamento de estado com Zustand (`lib/useStore.ts`), incluindo componente `ThemeSwitcher` para alternância de tema.
+### Componentes React Reutilizáveis
+Adicionados dois componentes avançados em `components/`:
+- `AdvancedCard`: Card flexível com título, ícone, ações e destaque opcional.
+- `AsyncImage`: Imagem com carregamento assíncrono, fallback e tratamento de erro.
+Exemplos de uso disponíveis em `components/examples/AdvancedCardExample.tsx` e `components/examples/AsyncImageExample.tsx`.
+
 ## Índice
 
 1. [Propósito e Público-Alvo](#propósito-e-público-alvo)
@@ -666,18 +709,29 @@ O SafeBridge utiliza:
 ---
 
 ## Autor
-**Márcio Gil**
-Embaixador do DIO Campus Expert
-Estudante do 5º período de Engenharia de Software
+
+**Márcio Gil**  
+Embaixador do DIO Campus Expert  
+Estudante do 5º período de Engenharia de Software  
 
 <p align="left">
-	<a href="https://linkedin.com/in/márcio-gil-1b7669309">LinkedIn</a> &nbsp;|&nbsp;
+	<a href="https://linkedin.com/in/marcio-gil-1b7669309">LinkedIn</a> &nbsp;|&nbsp;
 	<a href="https://github.com/MarcioGil/SafeBridge">GitHub - SafeBridge</a> &nbsp;|&nbsp;
 	<a href="https://github.com/MarcioGil/MarcioGil">GitHub - Perfil</a> &nbsp;|&nbsp;
 	<a href="https://marciogil.github.io/curriculum-vitae/">Currículo</a>
 </p>
 
 ---
+
+**Citação:**
+Este projeto foi idealizado, desenvolvido e documentado por Márcio Gil.  
+Embaixador do DIO Campus Expert e estudante do 5º período de Engenharia de Software.  
+Confira meus links:
+• [LinkedIn](https://linkedin.com/in/marcio-gil-1b7669309)
+• [GitHub - SafeBridge](https://github.com/MarcioGil/SafeBridge)
+• [GitHub - Perfil](https://github.com/MarcioGil/MarcioGil)
+• [Currículo](https://marciogil.github.io/curriculum-vitae/)
+
 
 
 ---
