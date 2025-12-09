@@ -1,0 +1,13 @@
+<svg width="600" height="320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="600" height="320" fill="#f3f4f6" />
+  <text x="50%" y="40" text-anchor="middle" font-size="28" font-family="Arial" fill="#2563eb">Dashboard ONG - Exemplo Visual</text>
+  <rect x="40" y="80" width="520" height="180" rx="16" fill="#fff" stroke="#2563eb" stroke-width="2" />
+  <text x="60" y="120" font-size="18" font-family="Arial" fill="#111">Ocorrências Recentes</text>
+  <rect x="60" y="140" width="480" height="30" rx="8" fill="#e0e7ff" />
+  <text x="70" y="160" font-size="14" font-family="Arial" fill="#2563eb">Pessoa em situação de risco - 04/12/2025</text>
+  <rect x="60" y="180" width="480" height="30" rx="8" fill="#e0e7ff" />
+  <text x="70" y="200" font-size="14" font-family="Arial" fill="#2563eb">Solicitação de abrigo - 03/12/2025</text>
+  <rect x="60" y="220" width="480" height="30" rx="8" fill="#e0e7ff" />
+  <text x="70" y="240" font-size="14" font-family="Arial" fill="#2563eb">Alerta de saúde - 02/12/2025</text>
+  <text x="60" y="280" font-size="14" font-family="Arial" fill="#111">Filtros | Exportar | Notificações | Estatísticas</text>
+</svg>
