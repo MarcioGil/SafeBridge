@@ -1,68 +1,30 @@
-## Navegação por Teclado e Atalhos
+
 
 O SafeBridge é totalmente navegável por teclado, garantindo acessibilidade:
-
 - Tabulação lógica entre campos e botões.
 - Atalhos para ações rápidas (ex: Alt+N para nova ocorrência, Alt+D para dashboard).
 - Foco visível e feedback para navegação.
 - Testes automatizados para garantir acessibilidade de navegação.
-
 ### Exemplo de Atalho
 ```typescript
-// app/globals.css
-*:focus {
-	outline: 2px solid #2563eb;
-}
-```
-
-// app/layout.tsx
-useEffect(() => {
-	const handler = (e: KeyboardEvent) => {
 		if (e.altKey && e.key === 'n') {
-			router.push('/occurrence');
 		}
 		if (e.altKey && e.key === 'd') {
 			router.push('/dashboard');
-		}
-	};
-	window.addEventListener('keydown', handler);
-	return () => window.removeEventListener('keydown', handler);
-}, []);
-## Alertas de Monitoramento
 
-O SafeBridge monitora eventos críticos e envia alertas para equipes responsáveis:
 
 - **Vercel Analytics:** Monitoramento de tráfego e erros.
-- **Datadog/Sentry/Logtail:** Integração opcional para logs, métricas e alertas customizados.
-- **Notificações:** E-mail, Slack, ou webhooks configuráveis para incidentes.
-
-### Exemplo de Integração com Sentry
-```typescript
-import * as Sentry from '@sentry/nextjs';
-Sentry.captureException(new Error('Erro crítico'));
-```
-
-> Configure as integrações no painel de cada serviço e adicione as variáveis de ambiente necessárias.
 ## Testes Automatizados de Acessibilidade
 
 O SafeBridge utiliza testes automatizados para garantir acessibilidade:
-
 - **axe-core:** Testes unitários e integração via Vitest.
 - **Lighthouse:** Auditoria automatizada em CI/CD.
 - **Testes manuais:** Checklist WCAG 2.1 e navegação por teclado.
 
-### Exemplo de Teste com axe-core
-```typescript
-import { configureAxe } from 'jest-axe';
-import { render } from '@testing-library/react';
-import AccessibleButton from '../components/AccessibleButton';
-
-test('botão acessível', async () => {
 	const { container } = render(<AccessibleButton />);
 	const axe = configureAxe();
 	expect(await axe(container)).toHaveNoViolations();
 });
-```
 
 ### Integração com CI/CD
 Inclua os testes de acessibilidade no workflow do GitHub Actions para garantir conformidade contínua.
