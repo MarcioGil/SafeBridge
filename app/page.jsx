@@ -3,17 +3,41 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-start">
-      <nav className="w-full bg-blue-600 text-white py-3 px-4 flex justify-between items-center shadow">
-        <span className="font-bold text-xl">SafeBridge</span>
-        <ul className="flex gap-6 text-base">
-          <li><Link href="/dashboard" className="hover:underline">Dashboard</Link></li>
-          <li><Link href="/occurrence" className="hover:underline">Registrar Ocorrência</Link></li>
-          <li><Link href="/privacy" className="hover:underline">Privacidade</Link></li>
-          <li><Link href="/auth/signin" className="hover:underline">Entrar/Sair</Link></li>
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-900 flex flex-col items-center justify-start">
+      {/* Banner visual */}
+      <div className="w-full flex justify-center bg-white shadow-md">
+        <img src="/banner.jpg" alt="SafeBridge Banner" className="w-full max-w-3xl rounded-lg my-6" />
+      </div>
+      {/* Menu moderno */}
+      <nav className="w-full bg-blue-700 text-white py-4 px-6 flex justify-between items-center shadow-lg rounded-b-lg">
+        <span className="font-extrabold text-2xl tracking-wide">SafeBridge</span>
+        <ul className="flex gap-8 text-lg font-medium">
+          <li><Link href="/dashboard" className="hover:text-blue-300 transition">Dashboard</Link></li>
+          <li><Link href="/occurrence" className="hover:text-blue-300 transition">Registrar Ocorrência</Link></li>
+          <li><Link href="/privacy" className="hover:text-blue-300 transition">Privacidade</Link></li>
+          <li><Link href="/auth/signin" className="hover:text-blue-300 transition">Entrar/Sair</Link></li>
         </ul>
       </nav>
       <section className="w-full max-w-4xl px-4">
+        {/* Texto explicativo do app */}
+        <div className="mt-10 mb-8 bg-white/80 rounded-lg shadow p-6 text-center">
+          <h1 className="text-3xl font-bold text-blue-700 mb-2">Tecnologia para gerar impacto social real</h1>
+          <p className="text-lg text-gray-700 mb-4">O SafeBridge é uma plataforma inclusiva, segura e acessível, criada para proteger e empoderar pessoas em situação de vulnerabilidade social. Aqui você encontra canais de denúncia anônima, orientações de segurança, recursos de apoio e informações sobre seus direitos. Nosso objetivo é promover autonomia, respeito e inclusão digital para todos.</p>
+          <div className="flex flex-wrap justify-center gap-6 mt-4">
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">🦽</span>
+              <span className="text-sm font-semibold text-blue-700">Acessibilidade</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">🛡️</span>
+              <span className="text-sm font-semibold text-blue-700">Tecnologia Inclusiva</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">⚡</span>
+              <span className="text-sm font-semibold text-blue-700">Abordagem Prática</span>
+            </div>
+          </div>
+        </div>
         {/* Canal de Contato e Denúncia Anônima */}
         <div className="mt-10">
           <h2 className="text-xl font-bold mb-2 text-blue-600">Canal de Contato e Denúncia Anônima</h2>
