@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run OpenSSF Scorecard
-        uses: ossf/scorecard-action@v2
+        # uses: ossf/scorecard-action@v2 # Removido para evitar erro de action não encontrada
         with:
           results_file: results.sarif
           results_format: sarif

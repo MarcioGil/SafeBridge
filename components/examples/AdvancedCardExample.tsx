@@ -1,4 +1,3 @@
-import React from "react";
 import React, { Suspense } from "react";
 const AdvancedCard = React.lazy(() => import("../AdvancedCard"));
 import { FiUser } from "react-icons/fi";

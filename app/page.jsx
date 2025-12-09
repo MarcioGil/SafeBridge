@@ -6,7 +6,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-900 flex flex-col items-center justify-start">
       {/* Banner visual */}
       <div className="w-full flex justify-center bg-white shadow-md">
-        <img src="/banner.jpg" alt="SafeBridge Banner" className="w-full max-w-3xl rounded-lg my-6" />
+        <img src="/banner-topo.jpg" alt="SafeBridge Banner" className="w-full max-w-3xl rounded-lg my-6" />
       </div>
       {/* Menu moderno */}
       <nav className="w-full bg-blue-700 text-white py-4 px-6 flex justify-between items-center shadow-lg rounded-b-lg">

@@ -16,6 +16,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head />
       <body>
+        {/* Registrar Service Worker para PWA */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js');
+              });
+            }
+          `
+        }} />
         {/* Banner visual no topo */}
         <div className="w-full bg-gradient-to-b from-blue-900 to-blue-100 flex justify-center items-center shadow-lg">
           <img

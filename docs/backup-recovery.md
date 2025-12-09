@@ -6,10 +6,15 @@
 - Retenção mínima recomendada: 30 dias.
 - Backups de arquivos anexados (uploads) realizados via snapshot do storage externo.
 
+
 ## Recuperação
-- Para restaurar o banco, utilize o arquivo de backup mais recente e o comando de restauração do banco (SQLite/Postgres).
-- Restaurar arquivos anexados a partir do snapshot do storage.
-- Testar a integridade dos dados após a restauração.
+- Para restaurar o banco SQLite local, use o script:
+	```bash
+	sh scripts/restore-db.sh backups/dev-AAAAmmdd-HHMMSS.db
+	```
+	Isso irá substituir o arquivo `dev.db` pelo backup selecionado.
+- Para restaurar arquivos anexados, recupere o snapshot do storage externo.
+- Teste a integridade dos dados após a restauração acessando o app localmente e validando as rotas principais.
 
 ## Testes de Recuperação
 - Realizar testes de recuperação pelo menos 1x por mês.

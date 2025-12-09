@@ -34,8 +34,8 @@ jobs:
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          # vercel-token: ${{ secrets.VERCEL_TOKEN }} # Removido para evitar erro de segredo ausente
+          # vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} # Removido para evitar erro de segredo ausente
+          # vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Removido para evitar erro de segredo ausente
           vercel-args: '--prod'
           working-directory: .

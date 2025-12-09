@@ -11,13 +11,13 @@ export function middleware(req: NextRequest) {
   res.headers.set("X-Frame-Options", "DENY");
 
   // Estratégia de cache HTTP para rotas estáticas
-  if (request.nextUrl.pathname.startsWith('/public') || request.nextUrl.pathname.endsWith('.jpg') || request.nextUrl.pathname.endsWith('.png')) {
-    response.headers.set('Cache-Control', 'public, max-age=86400, immutable');
+  if (req.nextUrl.pathname.startsWith('/public') || req.nextUrl.pathname.endsWith('.jpg') || req.nextUrl.pathname.endsWith('.png')) {
+    res.headers.set('Cache-Control', 'public, max-age=86400, immutable');
   }
 
   // Estratégia de cache para rotas dinâmicas (exemplo)
-  if (request.nextUrl.pathname.startsWith('/api/')) {
-    response.headers.set('Cache-Control', 'private, max-age=60, must-revalidate');
+  if (req.nextUrl.pathname.startsWith('/api/')) {
+    res.headers.set('Cache-Control', 'private, max-age=60, must-revalidate');
   }
   res.headers.set("X-Content-Type-Options", "nosniff");
   res.headers.set("Referrer-Policy", "no-referrer");

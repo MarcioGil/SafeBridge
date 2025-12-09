@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AccessibleButton from '../../components/AccessibleButton';
 
 export default function OccurrencePage() {

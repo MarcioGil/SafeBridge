@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-start">
